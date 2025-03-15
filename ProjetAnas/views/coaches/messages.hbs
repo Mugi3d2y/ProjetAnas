@@ -1,0 +1,37 @@
+<div class="header-img-container">
+    <img src="/images/tennis-court.jpg" alt="terrain de tennis">
+</div>
+<section>
+    <h1>Discussion</h1>
+    <div class="container_messages">
+            {{#if session.user}}
+                <table>
+                    {{#each messages}}
+                        <th>Message envoyé par {{this.sender_firstname}} {{this.sender_surname}} pour {{this.receiver_firstname}} {{this.receiver_surname}} le {{this.date_hour_message}}</th>
+                            <tr>
+                                <td><div class="message">{{this.message_text}}</div></td>
+                                 <td>
+                                    {{#if this.response_text}}
+                                        <div class="message">{{this.response_text}}</div>
+                                    {{else}}
+                                        {{#if (eq @root/session.user.status "coach")}}
+                                            <form action="/coaches/answer" method="post" class="form_messageAnswer">
+                                                <input type="hidden" name="msg_id" value="{{this.message_id}}">
+                                                <input type="text" name="message">
+                                                <input type="submit" name="send_message">
+                                            </form>
+                                        {{/if}}
+                                    {{/if}}
+                                </td>
+                                {{#if (eq @root/session.user.status "regular")}}
+                                    <td><img src="/{{this.receiver_picturepath}}" class="photo_profil_coach"></td>
+                                {{/if}}
+                                {{#if (eq @root/session.user.status "coach")}}
+                                    <td><img src="/{{@root/coach.picture_path}}" class="photo_profil_coach"></td>
+                                {{/if}}
+                            </tr>
+                    {{/each}}
+                </table>
+            {{/if}}
+    </div>
+</section>

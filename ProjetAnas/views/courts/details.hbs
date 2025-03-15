@@ -1,0 +1,27 @@
+
+<section>
+    <div class="container_court_img">
+            <img class="court_img" src="/{{court.picture_path}}" alt="{{court.name}}">
+            <div class="container" >
+                <h2>{{court.name}}</h2>
+                <h3>{{court.flooring_type}}</h3><br>
+                <p>{{court.location}}</p>
+            </div>
+</section>
+ <section>
+  {{#if session.user}}
+   <h2> Réserver ce Terrain</h2>
+   <form  method="post"  action="/courts/booking">
+<label for="dateSelect">Sélectionnez une date :</label>
+        <input type="date" id="dateSelect" name="date" min="{{formattedDate}}">
+        <input type="hidden" name="id" value="{{court.tennis_court_id}}" > 
+       
+        {{#if error}}
+        <p class="error-message"> Le court de Tennis à cette date est déjà réservé. Veuillez choisir une autre date </p>
+     
+        {{/if}}
+        <button class="button" type="submit">Réserver</button>
+
+   </form>
+  {{/if}}
+</section>

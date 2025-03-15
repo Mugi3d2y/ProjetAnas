@@ -1,0 +1,58 @@
+<section>
+    <h1>VINCI COURT</h1>
+
+    <div class="index">
+        <div class="text">
+            <p>
+            Bienvenue au VINCI CLUB, là où la passion pour le tennis rencontre l'excellence sportive. Notre histoire commence avec un groupe d'amateurs de tennis passionnés qui ont décidé de créer un lieu où les joueurs de tous niveaux peuvent s'épanouir, se perfectionner et partager leur amour du sport.
+            </p>
+            <p>
+            Fondé il y a plus de deux décennies, le VINCI CLUB est devenu le foyer de joueurs de tennis de tout âge et de tout niveau, des débutants enthousiastes aux compétiteurs chevronnés. Situé au cœur de la communauté, notre club offre bien plus que des terrains de tennis impeccables et des installations de classe mondiale. C'est un lieu où les amitiés se nouent, où les défis sont relevés et où les victoires sont célébrées.
+            </p>
+        </div>
+    </div>
+    <div class="index_img">
+            <img src="" alt="">
+    </div>   
+</section>
+
+<section class="background_photo">
+    <div class="details">
+        <div class="details_block">
+            <p class="title">Tournois à venir</p>
+            <p class="details">{{nbTournaments}}</p>
+        </div>
+        <div class="details_block">
+            <p class="title">Terrains disponibles</p>
+            <p class="details">{{nbBookings}}</p>
+        </div>
+        <div class="details_block">
+            <p class="title">Messages envoyés semaine dernière</p>
+            <p class="details">{{nbMessages}}</p>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="index">
+        <div class="text">
+            <p>
+                Notre équipe de professionnels dévoués est là pour vous aider à atteindre vos objectifs, que vous souhaitiez perfectionner votre revers, participer à des tournois locaux ou simplement profiter d'une partie amicale avec des amis. Avec des cours individuels, des sessions d'entraînement en groupe et des programmes spéciaux pour les jeunes joueurs, nous nous engageons à offrir une expérience de tennis enrichissante à tous nos membres.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>    
+    <h2 style="text-align:center;">Nos coaches</h2>
+    <div class="container" style="text-align:center;">
+        {{#each coaches}}
+            <div class="card">
+                <img src="/{{this.picture_path}}" alt="{{this.picture_path}}">
+                <p class="title">
+                    <a href="http://localhost:3000/coaches/bio?id={{this.user_id}}">{{this.firstname}} {{this.surname}}</a>
+                </p>
+                <p>{{this.email}}</p>
+            </div>
+        {{/each}}
+    </div>
+</section>

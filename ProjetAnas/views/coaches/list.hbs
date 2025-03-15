@@ -1,0 +1,17 @@
+<div class="header-img-container">
+    <img src="/images/tennis-court.jpg" alt="terrain de tennis">
+</div>
+<section>    
+    <h1>Liste de coaches</h1>
+    <div class="container">
+            {{#each coaches}}
+                <div class="card">
+                    <img src="/{{this.picture_path}}" alt="{{this.picture_path}}">
+                    <p class="title">
+                        <a href="http://localhost:3000/coaches/bio?id={{this.user_id}}">{{this.firstname}} {{this.surname}}</a>
+                    </p>
+                    <p>{{this.email}}</p>
+                </div>
+            {{/each}}
+          </div>
+</section>

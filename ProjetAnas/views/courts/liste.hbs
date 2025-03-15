@@ -1,0 +1,40 @@
+  <div class="header-img-container">
+    <img src="/images/tennis-court.jpg" alt="terrain de tennis">
+</div>
+    <h1 style="text-align:center;">Terrains</h1>
+    
+    <section> 
+     
+     <div class="container">
+    
+            {{#each courtListe}}
+            <div class="card">
+           <img  src="/{{this.picture_path}}" alt="{{this.name}}">
+
+               <p>
+                <b class="title"> <a href="http://localhost:3000/courts/details?id={{this.tennis_court_id}}">{{this.name}}</a> </b> 
+               </p>  
+            
+              <p>  
+                {{this.flooring_type}}
+              </p>
+               {{#if (eq @root/session.user.status "coach")}}
+                               <form method="get" action="/courts/update">
+                  <input type="hidden" name="tennis_court_id" value="{{this.tennis_court_id}}" > 
+                  <input class="button" type="submit" value="Modifier">
+                </form>    
+                {{/if}}
+              
+              
+
+              
+            
+        </div>
+       
+            {{/each}}
+ </div>
+           
+           
+        
+    </section>
+    

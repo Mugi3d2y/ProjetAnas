@@ -1,0 +1,27 @@
+<div class="header-img-container">
+    <img src="/images/tennis-court.jpg" alt="terrain de tennis">
+</div>
+<section>
+    <h1>Connexion</h1>
+    <div class="container_logIn">
+        <form method="post" action="/users/login">
+            <div>
+                <label for="email">Email : </label>
+                <input type="email" name="email" />
+            </div>
+            <div>
+                <label>Mot de passe : </label>
+                <input type="password" name="password" />
+              </div>
+            <div>
+                <input type="submit" value="Se connecter">
+            </div>
+        </form>
+        {{#if error}}
+        <section class="error" style="margin-left: 15px;">
+            <p>{{error}}</p>
+        </section>
+        {{/if}}
+    </div>
+</section>
+

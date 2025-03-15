@@ -1,0 +1,45 @@
+<div class="header-img-container">
+    <img src="/images/tennis-court.jpg" alt="terrain de tennis">
+</div>
+<section>
+    <h1>S'inscrire</h1>
+    <div class="container_register">
+        <form method="post" action="/users/register">
+                <div>
+                    <label for="firstname">Prénom : </label>
+                    <input type="text" name="firstname" />
+                </div>
+                <div>
+                    <label for="surname">Nom de famille : </label>
+                    <input type="text" name="surname" />
+                </div>
+                <div>
+                    <label for="email">Email : </label>
+                    <input type="email" name="email" />
+                </div>
+    
+                <div>
+                    <label for="password">Mot de passe : </label>
+                    <input type="password" name="password" />
+                </div>
+        
+                <div>
+                    <label for="password">Confirmation de mot de passe : </label>
+                    <input type="password" name="password_confirmation" />
+                </div>
+               
+                <div>
+                    <input type="submit" value="S'inscrire">
+                </div>
+            </form>
+                {{#if errors}}
+                <section class="error">
+                    <ul>
+                        {{#each errors}}
+                            <li class="error"> {{this}} </li>
+                        {{/each}}
+                    </ul>
+                </section>
+                {{/if}}
+    </div>
+</section>

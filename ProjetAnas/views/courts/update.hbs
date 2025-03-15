@@ -1,0 +1,40 @@
+<div class="header-img-container">
+    <img src="/images/tennis-court.jpg" alt="terrain de tennis">
+</div>
+<section>
+    <h1>Modifier les informations </h1>
+    <form method="post" action="/courts/update" enctype="multipart/form-data">
+       <input type="hidden" name="tennis_court_id" value="{{court.tennis_court_id}}" > 
+
+        <label for="court_name" > Nom :</label>
+        <input type="text" value="{{court.name}}" id="court_name" name="court_name"> <br><br>
+
+        <label for="flooring_type"> Type de Revetement :</label>
+        <select name="flooring_type">
+                <option {{#if (eq court.flooring_type "clay")}} 
+                            selected 
+                        {{/if}} value="clay"> clay</option>
+                <option {{#if (eq court.flooring_type "grass")}} 
+                            selected 
+                        {{/if}} value="grass">grass</option>
+                <option {{#if (eq court.flooring_type "artificial")}} 
+                            selected 
+                        {{/if}} value="artificial">artificial</option>
+            
+            </select>
+            <br><br>
+
+         <label for="location">Location:</label>
+        <input type="text" value="{{court.location}}" id="location" name="location" ><br><br>
+        
+        <label for="court_picture">Court Picture:</label><br>
+        <input type="file" id="court_picture" name="court_picture"><br><br>
+        
+        <button type="submit">Mettre à jour</button>
+    </form>
+
+    {{#if error}}
+    <p> {{error}} </p>
+    {{/if}}
+        
+</section>

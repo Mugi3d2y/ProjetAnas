@@ -1,0 +1,45 @@
+<div class="header-img-container">
+    <img src="/{{tournament.banner_image_path}}" alt="terrain de tennis">
+</div>
+<p class="title">{{tournament.name}}</p>
+<section class="details_tournament_section">
+<div class="details_container">
+    <div class="details_block">
+        <p class="title">Date</p>
+        <p class="details">{{tournament.date_tournament}}</p>
+    </div>
+    <div class="details_block">
+        <p class="title">Inscrits</p>
+        <p class="details">{{nb_participants}}</p>
+    </div>
+    <div class="details_block">
+        <p class="title">Participants</p>
+        <p class="details">{{tournament.nb_max_participants}} max</p>
+    </div>
+    <div class="details_block">
+        <p class="title">Entraineur</p>
+        <img src="/{{coach.picture_path}}" alt="coach photo">
+        <p class="details_coach"><a href="http://localhost:3000/coaches/bio?id={{coach.user_id}}">{{coach.firstname}} {{coach.surname}}</a></p>
+    </div>
+</div>
+</section>
+{{#if session.user }}
+    {{#if inFuture}}
+        {{#if isRegistered}}
+            <form class="tournament_register_form" action="/tournaments/unregister" method="post">
+                    <input type="hidden" name="id" value="{{tournament.tournament_id}}">
+                    <input class="register_button" type="submit" value="Se désinscrire">
+            </form>
+        {{else}}
+                {{#if isFull}}
+                    <p class="tournament_text">Le tournoi est complet</p>
+                {{else}}
+                <form class="tournament_register_form" action="/tournaments/register" method="post" >
+                    <input type="hidden" name="id" value="{{tournament.tournament_id}}">
+                    <input class="register_button" type="submit" value="S'inscrire" >
+                </form>
+                {{/if}}
+        {{/if}}
+    {{/if}}    
+{{/if}}
+

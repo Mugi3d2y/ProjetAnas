@@ -1,0 +1,19 @@
+<p class="title">Liste de tournois</p>
+<main>
+        <div class="container">
+            {{#each tournaments}}
+                <div class="card">
+                    <img src="{{this.banner_image_path}}" alt="tournament photo">
+                    <p class="title">
+                        <a href="http://localhost:3000/tournaments/details?id={{this.tournament_id}}">{{this.name}}</a>
+                    </p>
+                    <p>
+                        {{this.date_tournament}}
+                    </p>
+                    <p>
+                        Max particupants: {{this.nb_max_participants}}
+                    </p>
+                </div>
+            {{/each}}
+          </div>
+    </main>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Site</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="icon" href="/images/tennis.png">
+    <!-- import of Montserrat font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+    
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <span>Tournois</span>
+                            <div class="dropdown-menu">
+                                <p><a href="/tournaments">Liste de tournois</a></p>
+                                {{#if (eq @root/session.user.status "coach")}}
+                                    <p><a href="/tournaments/create">Création de tournois</a></p>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <span>Terrains</span>
+                            <div class="dropdown-menu">
+                                <p><a href="/courts">Liste de terrains</a></p>
+                                {{#if session.user}}
+                                 <p><a href="/courts/booking">Liste de Réservations</a></p>
+                                 {{/if}}
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <span>Entraîneurs</span>
+                            <div class="dropdown-menu">
+                                <p><a href="/coaches/list">Liste des entraîneurs</a></p>
+                                {{#if session.user}}
+                                    <p><a href="/coaches/messages">Liste des messages</a></p>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div> 
+            <div class="right"> 
+                <ul> 
+                    {{#if session.user}}
+                            <li> <a class="authlink" href="/users/logout">Se déconnecter</a> </li>
+                        {{else}}
+                            <li> <a class="authlink" href="/users/login">Se connecter</a> </li>
+                            <li> <a class="authlink" href="/users/register">S'inscrire</a> </li>
+                    {{/if}} 
+                </ul>
+            </div>
+    </nav>
+    </header>
+        {{{body}}}
+    <footer>
+        <div>
+            <h3>À propos de nous</h3>
+            <h4>Groupe 75</h4>
+            <p>Alona Mykhailenko</p>
+            <p>Abir Elmalki</p>
+            <p>Yaou Addou Marouan</p>
+        </div>
+        
+    </footer>
+</body>
+</html>

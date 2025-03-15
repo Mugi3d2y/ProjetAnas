@@ -1,0 +1,29 @@
+<div class="header-img-container">
+    <img src="/images/tennis-court.jpg" alt="terrain de tennis">
+</div>
+<h1>Réservations</h1>
+<section>
+  
+    <table class="myTable">
+       <tr class="myRow">
+         <th class="myHeader">Nom du Terrain</th>
+         <th class="myHeader">La date de Réservation</th>
+         <th class="myHeader">Action</th>
+       </tr>
+        {{#each bookingList}}
+       <tr class="myRow">
+           <td>{{this.name}}</td>
+           <td>{{this.date_booking}}</td>
+           <td>
+                <form method="post" action="/courts/unbook">
+                    <input type="hidden" name="id" value="{{this.tennis_court_id}}">
+                    <input type="hidden" name="date" value="{{this.date_booking}}">
+                    <input type="submit" value="Annuler la réservation">
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    
+ 
+</section>

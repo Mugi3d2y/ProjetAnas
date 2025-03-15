@@ -1,0 +1,31 @@
+<div class="header-img-container">
+    <img src="/images/tennis-court.jpg" alt="terrain de tennis">
+</div>
+<section>
+    <h1>Entraîneur</h1>
+    <div class="container_coach_img">
+            <img class="coach_img" src="/{{coach.picture_path}}" alt="{{coach.firstname}}">
+            <div class="profile_info">
+                <h2>{{coach.firstname}} {{coach.surname}}</h2>
+                <h3>{{coach.email}}</h3><br>
+                <p>{{coach.biography}}</p>
+            </div>
+    </div>
+    {{#if (eq session.user.status "coach")}} {{!vérifie que c'est bien un coach}}
+        {{#if (eq session.user.user_id coach.user_id)}} {{!vérifie que c'est bien le bon coach qui est connecté}}
+            <form action="/coaches/update" class="form_bio" method="get">
+                <input type="hidden" name="coach_id" value="{{coach.user_id}}">
+                <input class="update_boutton" type="submit" id="update" value="Modifier ma bio">
+            </form>
+        {{/if}}
+    {{/if}} 
+        
+    {{#if (eq session.user.status "regular")}}
+        <form action="/coaches/message" method="post" class="form_message">
+            <textarea class="champs_message" name="message" id="message" placeholder="Ecrivez votre message..." cols="30" rows="10"></textarea>
+            <input class="send_boutton" type="submit" id="send" value="Envoyer un message">
+            <input type="hidden" name="coach_id" value="{{coach.user_id}}">
+            <input type="hidden" name="user_id" value="{{session.user.user_id}}">
+        </form>
+    {{/if}}
+</section>

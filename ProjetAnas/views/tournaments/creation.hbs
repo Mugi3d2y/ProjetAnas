@@ -1,0 +1,34 @@
+<h2 class="center">Création de tournois</h2>
+<div class="container_tournament_creation">
+        <form method="post" action="/tournaments/create" enctype="multipart/form-data">
+                <div>
+                    <label for="name">Name : </label>
+                    <input type="text" name="name" />
+                </div>
+                <div>
+                    <label for="date">Date de tournois : </label>
+                    <input type="date" name="date" />
+                </div>
+                <div>
+                    <label for="number">Nombre maximum de participants : </label>
+                    <input type="number" name="max_participants" min="1"/>
+                </div>
+                <div>
+                    <input type="file" name="tournament_photo" />
+                
+                </div>
+                <div>
+                    <input type="submit" value="Créer le tournois">
+                </div>
+            </form>
+                {{#if errors}}
+                <section class="error">
+                    <ul>
+                        {{#each errors}}
+                            <li class="error"> {{this}} </li>
+                        {{/each}}
+                    </ul>
+                </section>
+                {{/if}}
+        
+</div>

@@ -1,0 +1,16 @@
+<div class="header-img-container">
+    <img src="/images/tennis-court.jpg" alt="terrain de tennis">
+</div>
+<section>
+  <h1>Modifier mes informations</h1>
+  <div class="form_updateBio">
+    <form action="/coaches/update" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="user_id" value="{{session.user.user_id}}">
+      <label>Nouvelle biographie :</label>
+      <textarea class="champs_bio" name="newBio" placeholder="Modifier ma biographie..." cols="50" rows="10">{{coach.biography}}</textarea>
+      <label>Photo de profil :</label>
+      <input type="file" name="profileImage">
+      <input type="submit" value="Confirmer" class="confirmer">
+    </form> 
+  </div>
+</section>
